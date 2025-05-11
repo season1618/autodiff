@@ -74,8 +74,8 @@ diff f x = \dx ->
     let (D _ dy) = fromDual . f . toDual $ (D x dx)
     in dy
 
-diffcoef :: (EqDual a, Fractional a) => (Dual a -> Dual a) -> (a -> a)
-diffcoef f = \x -> diff f x 1
+diffcoef :: (EqDual a, Num a) => (Dual a -> Dual a) -> (a -> a)
+diffcoef f x = diff f x 1
 
 -- (y1, y2, ...) = f (x1, x2, ...)
 -- Jf = [(dy1/dx1, dy2/dx1, ...), (dy1/dx2, dy2/dx2, ...), ...]

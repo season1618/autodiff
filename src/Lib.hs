@@ -54,17 +54,17 @@ instance EqDual Float where
     toDual (D x dx) = D x dx
     fromDual (D x dx) = D x dx
 
-instance EqDual (Float, Float) where
+instance Num a => EqDual (a, a) where
     base = [(1, 0), (0, 1)]
     toDual (D (x0, x1) (dx0, dx1)) = (D x0 dx0, D x1 dx1)
     fromDual (D x0 dx0, D x1 dx1) = D (x0, x1) (dx0, dx1)
 
-instance EqDual (Float, Float, Float) where
+instance Num a => EqDual (a, a, a) where
     base = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]
     toDual (D (x0, x1, x2) (dx0, dx1, dx2)) = (D x0 dx0, D x1 dx1, D x2 dx2)
     fromDual (D x0 dx0, D x1 dx1, D x2 dx2) = D (x0, x1, x2) (dx0, dx1, dx2)
 
-instance EqDual (Float, Float, Float, Float) where
+instance Num a => EqDual (a, a, a, a) where
     base = [(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)]
     toDual (D (x0, x1, x2, x3) (dx0, dx1, dx2, dx3)) = (D x0 dx0, D x1 dx1, D x2 dx2, D x3 dx3)
     fromDual (D x0 dx0, D x1 dx1, D x2 dx2, D x3 dx3) = D (x0, x1, x2, x3) (dx0, dx1, dx2, dx3)
